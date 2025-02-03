@@ -40,19 +40,42 @@ namespace Activitats
             //    Console.WriteLine($"{items.Key} {items.Value}");
             //}
             //Act 4
-            List<string> list = new List<string>();
+            //List<string> list = new List<string>();
+            //Console.WriteLine("Cuants valors vols?");
+            //int longitud = Convert.ToInt32(Console.ReadLine());
+            //for (int i = 0; i < longitud; i++)
+            //{
+            //    Console.WriteLine("Escriu quin nom vols introduir?");
+            //    list.Add(Console.ReadLine());
+            //}
+            ////LLista sense ordenar
+            //foreach (string items in list)
+            //{
+            //    Console.WriteLine(items);
+            //}
+            //list.Sort();
+            ////Llista ordenada
+            //foreach (string items in list)
+            //{
+            //    Console.WriteLine(items);
+            //}
+            //Act 5
+            List<int> listNum = new List<int>();
             Console.WriteLine("Cuants valors vols?");
             int longitud = Convert.ToInt32(Console.ReadLine());
             for (int i = 0; i < longitud; i++)
             {
-                Console.WriteLine("Escriu quin nom vols introduir?");
-                list.Add(Console.ReadLine());
+                Console.WriteLine("Quin valor vols introduir?");
+                listNum.Add(Convert.ToInt32(Console.ReadLine()));
             }
-            list.Sort();
-            foreach (string items in list)
+            foreach (int num in listNum)
             {
-                Console.WriteLine(items);
+                if (num % 2 == 0)
+                {
+                    Console.WriteLine(num);
+                }
             }
+
         }
     }
 }
