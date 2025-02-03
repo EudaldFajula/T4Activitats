@@ -4,7 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 
-namespace T4Activitats
+namespace T4Activitats.Act1
 {
     internal class Parella<T1, T2>
     {
