@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Collections.Generic;
 using T4Activitats.Act1;
 namespace Activitats
 {
@@ -26,17 +27,31 @@ namespace Activitats
             //    Console.WriteLine(i);
             //}
             //Act 3
-            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            //Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            //Console.WriteLine("Cuants valors vols?");
+            //int longitud = Convert.ToInt32(Console.ReadLine());
+            //for (int i = 1; i < longitud + 1; i++)
+            //{
+            //    Console.WriteLine("Escriu quina edat vols introduir?");
+            //    dictionary.Add($"Alumne {i}:", Convert.ToInt32(Console.ReadLine()));
+            //}
+            //foreach (var items in dictionary)
+            //{
+            //    Console.WriteLine($"{items.Key} {items.Value}");
+            //}
+            //Act 4
+            List<string> list = new List<string>();
             Console.WriteLine("Cuants valors vols?");
             int longitud = Convert.ToInt32(Console.ReadLine());
-            for (int i = 1; i < longitud + 1; i++)
+            for (int i = 0; i < longitud; i++)
             {
-                Console.WriteLine("Escriu quines edats vols introduir?");
-                dictionary.Add($"Alumne {i}:", Convert.ToInt32(Console.ReadLine()));
+                Console.WriteLine("Escriu quin nom vols introduir?");
+                list.Add(Console.ReadLine());
             }
-            foreach (var items in dictionary)
+            list.Sort();
+            foreach (string items in list)
             {
-                Console.WriteLine($"{items.Key} {items.Value}");
+                Console.WriteLine(items);
             }
         }
     }
