@@ -60,22 +60,27 @@ namespace Activitats
             //    Console.WriteLine(items);
             //}
             //Act 5
-            List<int> listNum = new List<int>();
-            Console.WriteLine("Cuants valors vols?");
-            int longitud = Convert.ToInt32(Console.ReadLine());
-            for (int i = 0; i < longitud; i++)
-            {
-                Console.WriteLine("Quin valor vols introduir?");
-                listNum.Add(Convert.ToInt32(Console.ReadLine()));
-            }
-            foreach (int num in listNum)
-            {
-                if (num % 2 == 0)
-                {
-                    Console.WriteLine(num);
-                }
-            }
-
+            //List<int> listNum = new List<int>();
+            //Console.WriteLine("Cuants valors vols?");
+            //int longitud = Convert.ToInt32(Console.ReadLine());
+            //for (int i = 0; i < longitud; i++)
+            //{
+            //    Console.WriteLine("Quin valor vols introduir?");
+            //    listNum.Add(Convert.ToInt32(Console.ReadLine()));
+            //}
+            //foreach (int num in listNum)
+            //{
+            //    if (num % 2 == 0)
+            //    {
+            //        Console.WriteLine(num);
+            //    }
+            //}
+            //Act 6
+            Console.WriteLine("Introdueix una data format -> YYYY-MM-DD:");
+            DateTime data = DateTime.Parse(Console.ReadLine());
+            DateTime avui = DateTime.Now;
+            TimeSpan diferencia = data - avui;
+            Console.WriteLine($"Falten {diferencia.Days} dies");
         }
     }
 }
