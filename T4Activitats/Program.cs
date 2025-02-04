@@ -90,7 +90,7 @@ namespace Activitats
             DateTime avui = DateTime.Now;
             TimeSpan diferencia = data.Subtract(avui);
             Console.WriteLine($"Falten {diferencia.Days} dies");
-            */
+            
             //Act 7
             ArrayList arrayList = new ArrayList() { "Maria", "Joan", "Anna", 42, true };
             foreach (var item in arrayList)
@@ -114,6 +114,21 @@ namespace Activitats
             {
                 Console.WriteLine(item);
             }
+            */
+            //Act 8
+            List<int> listInts = new List<int>() { 5,10,15,20,25 };
+            //Afegir el 30 al final de la llista
+            listInts.Add(30);
+            //Afegir el 7 al principi
+            listInts.Insert(0, 7);
+            //Eliminar el numero 15
+            listInts.Remove(15);
+            //Ordernar la llista de manera descendet
+            listInts.OrderByDescending(n => n).ToList();
+            //Filtrar nombres parells
+            var list = listInts.Where(n => n % 2 == 0).ToList();
+            //Printar
+            Console.WriteLine(string.Join(" | ", list));
         }
     }
 }
