@@ -8,79 +8,112 @@ namespace Activitats
     {
         public static void Main()
         {
+            /*
+            
             //Act1
-            //Parella<string, int> parellaTest1 = new Parella<string, int>("Hola", 2);
-            //parellaTest1.MostrarValors();
-            //Parella<double, bool> parellaTest2 = new Parella<double, bool>(3.4, true);
-            //parellaTest2.MostrarValors();
+            Parella<string, int> parellaTest1 = new Parella<string, int>("Hola", 2);
+            parellaTest1.MostrarValors();
+            Parella<double, bool> parellaTest2 = new Parella<double, bool>(3.4, true);
+            parellaTest2.MostrarValors();
+            
             //Act2
-            //ArrayList arrayList = new ArrayList();
-            //Console.WriteLine("Cuants valors vols?");
-            //int longitud = Convert.ToInt32(Console.ReadLine());
-            //for (int i = 0; i < longitud; i++)
-            //{
-            //    Console.WriteLine("Escriu valor: ");
-            //    arrayList.Add(Console.ReadLine());
-            //}
-            //foreach (var i in arrayList)
-            //{
-            //    Console.WriteLine(i);
-            //}
+            ArrayList arrayList = new ArrayList();
+            Console.WriteLine("Cuants valors vols?");
+            int longitudDos = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < longitudDos; i++)
+            {
+                Console.WriteLine("Escriu valor: ");
+                arrayList.Add(Console.ReadLine());
+            }
+            foreach (var i in arrayList)
+            {
+                Console.WriteLine(i);
+            }
+            
             //Act 3
-            //Dictionary<string, int> dictionary = new Dictionary<string, int>();
-            //Console.WriteLine("Cuants valors vols?");
-            //int longitud = Convert.ToInt32(Console.ReadLine());
-            //for (int i = 1; i < longitud + 1; i++)
-            //{
-            //    Console.WriteLine("Escriu quina edat vols introduir?");
-            //    dictionary.Add($"Alumne {i}:", Convert.ToInt32(Console.ReadLine()));
-            //}
-            //foreach (var items in dictionary)
-            //{
-            //    Console.WriteLine($"{items.Key} {items.Value}");
-            //}
+            Dictionary<string, int> dictionary = new Dictionary<string, int>();
+            Console.WriteLine("Cuants valors vols?");
+            int longitudTres = Convert.ToInt32(Console.ReadLine());
+            for (int i = 1; i < longitudTres + 1; i++)
+            {
+                Console.WriteLine("Escriu quina edat vols introduir?");
+                dictionary.Add($"Alumne {i}:", Convert.ToInt32(Console.ReadLine()));
+            }
+            foreach (var items in dictionary)
+            {
+                Console.WriteLine($"{items.Key} {items.Value}");
+            }
+            
             //Act 4
-            //List<string> list = new List<string>();
-            //Console.WriteLine("Cuants valors vols?");
-            //int longitud = Convert.ToInt32(Console.ReadLine());
-            //for (int i = 0; i < longitud; i++)
-            //{
-            //    Console.WriteLine("Escriu quin nom vols introduir?");
-            //    list.Add(Console.ReadLine());
-            //}
-            ////LLista sense ordenar
-            //foreach (string items in list)
-            //{
-            //    Console.WriteLine(items);
-            //}
-            //list.Sort();
-            ////Llista ordenada
-            //foreach (string items in list)
-            //{
-            //    Console.WriteLine(items);
-            //}
+            List<string> list = new List<string>();
+            Console.WriteLine("Quants valors vols?");
+            int longitudQuatre = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < longitudQuatre; i++)
+            {
+               Console.WriteLine("Escriu quin nom vols introduir:");
+                list.Add(Console.ReadLine());
+            }
+            Console.WriteLine("Llista no ordenada");
+            //LLista sense ordenar
+            foreach (string items in list)
+            {
+                Console.WriteLine(items);
+            }
+            list.Sort();
+            Console.WriteLine("Llista ordenada");
+            //Llista ordenada
+            foreach (string items in list)
+            {
+               Console.WriteLine(items);
+            }
+            
             //Act 5
-            //List<int> listNum = new List<int>();
-            //Console.WriteLine("Cuants valors vols?");
-            //int longitud = Convert.ToInt32(Console.ReadLine());
-            //for (int i = 0; i < longitud; i++)
-            //{
-            //    Console.WriteLine("Quin valor vols introduir?");
-            //    listNum.Add(Convert.ToInt32(Console.ReadLine()));
-            //}
-            //foreach (int num in listNum)
-            //{
-            //    if (num % 2 == 0)
-            //    {
-            //        Console.WriteLine(num);
-            //    }
-            //}
+            List<int> listNum = new List<int>();
+            Console.WriteLine("Cuants valors vols?");
+            int longitudCinc = Convert.ToInt32(Console.ReadLine());
+            for (int i = 0; i < longitudCinc; i++)
+            {
+                Console.WriteLine("Quin valor vols introduir?");
+                listNum.Add(Convert.ToInt32(Console.ReadLine()));
+            }
+            foreach (int num in listNum)
+            {
+                if (num % 2 == 0)
+                {
+                    Console.WriteLine(num);
+                }
+            }
+            
             //Act 6
             Console.WriteLine("Introdueix una data format -> YYYY-MM-DD:");
             DateTime data = DateTime.Parse(Console.ReadLine());
             DateTime avui = DateTime.Now;
-            TimeSpan diferencia = data - avui;
+            TimeSpan diferencia = data.Subtract(avui);
             Console.WriteLine($"Falten {diferencia.Days} dies");
+            */
+            //Act 7
+            ArrayList arrayList = new ArrayList() { "Maria", "Joan", "Anna", 42, true };
+            foreach (var item in arrayList)
+            {
+                Console.WriteLine(item);
+            }
+            //Esborrar el 43
+            arrayList.Remove(42);
+            //Esborrar el true
+            arrayList.Remove(true);
+            //Afegir el Pere
+            arrayList.Insert(2, "Pere");
+            //Comprovar si esta la Anna
+            Console.WriteLine("Comprovar si esta l'anna");
+            Console.WriteLine(arrayList.Contains("Anna"));
+            //Convertir l'array a un string[]
+            string[] arrayString = new string[arrayList.Count]; 
+            arrayList.CopyTo(arrayString);
+            Console.WriteLine("Array now tipus string");
+            foreach (var item in arrayList)
+            {
+                Console.WriteLine(item);
+            }
         }
     }
 }
