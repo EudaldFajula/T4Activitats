@@ -152,7 +152,7 @@ namespace Activitats
             {
                 Console.WriteLine($"Nom: {variable.Key}, Edat: {variable.Value}");
             }
-            */
+            
             //Act 10
             Console.WriteLine("Escriu la primera data amb format -> YYYY-MM-DD");
             DateTime primeraData = DateTime.Parse(Console.ReadLine());
@@ -169,12 +169,16 @@ namespace Activitats
             {
                 Console.WriteLine("La segona data es abans de la primera data");
             }
-
+            */
+            //Act 11
+            Console.WriteLine(DateToday());
         }
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
         {
             return segonaData.CompareTo(primeraData);
         }
+        //Act 11
+        public static DayOfWeek DateToday() => DateTime.Today.DayOfWeek;
     }
 }
