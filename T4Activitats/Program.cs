@@ -114,7 +114,7 @@ namespace Activitats
             {
                 Console.WriteLine(item);
             }
-            */
+            
             //Act 8
             List<int> listInts = new List<int>() { 5,10,15,20,25 };
             //Afegir el 30 al final de la llista
@@ -129,6 +129,30 @@ namespace Activitats
             var list = listInts.Where(n => n % 2 == 0).ToList();
             //Printar
             Console.WriteLine(string.Join(" | ", list));
+            */
+            //Act9
+            Dictionary<string, int> dictActNine = new Dictionary<string, int>();
+            //Afegir dades al diccionari
+            dictActNine.Add("Marc", 21);
+            dictActNine.Add("Laura", 29);
+            dictActNine.Add("Pau", 22);
+            //Printar dades diccionari
+            foreach(var variable in  dictActNine)
+            {
+                Console.WriteLine($"Nom: {variable.Key}, Edat: {variable.Value}");
+            }
+            //Preguntar usuari si existeix el nom i ensenyar la seva edat
+            Console.WriteLine("Quin nom vols trobar al diccionari?");
+            string nomBuscar = Console.ReadLine();
+            Console.WriteLine(dictActNine.ContainsKey(nomBuscar) ? $"El nom esta al diccionari\nLa seva edat es:{dictActNine[nomBuscar]}" : "El nom no esta al diccionari.");
+            //Esborrar Laura del diccionari
+            dictActNine.Remove("Laura");
+            //Iterar totes les entrades i mostrarles per pantalla
+            foreach(var variable in dictActNine)
+            {
+                Console.WriteLine($"Nom: {variable.Key}, Edat: {variable.Value}");
+            }
+            
         }
     }
 }
