@@ -129,7 +129,7 @@ namespace Activitats
             var list = listInts.Where(n => n % 2 == 0).ToList();
             //Printar
             Console.WriteLine(string.Join(" | ", list));
-            */
+            
             //Act9
             Dictionary<string, int> dictActNine = new Dictionary<string, int>();
             //Afegir dades al diccionari
@@ -148,11 +148,33 @@ namespace Activitats
             //Esborrar Laura del diccionari
             dictActNine.Remove("Laura");
             //Iterar totes les entrades i mostrarles per pantalla
-            foreach(var variable in dictActNine)
+            foreach (var variable in dictActNine)
             {
                 Console.WriteLine($"Nom: {variable.Key}, Edat: {variable.Value}");
             }
-            
+            */
+            //Act 10
+            Console.WriteLine("Escriu la primera data amb format -> YYYY-MM-DD");
+            DateTime primeraData = DateTime.Parse(Console.ReadLine());
+            Console.WriteLine("Escriu la segona data amb format -> YYYY-MM-DD");
+            DateTime segonaData = DateTime.Parse(Console.ReadLine());
+            if (CompareDates(primeraData, segonaData) > 0)
+            {
+                Console.WriteLine("La segona data es posterior a la primera data");
+            }else if (CompareDates(primeraData, segonaData) == 0)
+            {
+                Console.WriteLine("Les datas son iguals");
+            }
+            else
+            {
+                Console.WriteLine("La segona data es abans de la primera data");
+            }
+
+        }
+        //Act 10
+        public static int CompareDates(DateTime primeraData, DateTime segonaData)
+        {
+            return segonaData.CompareTo(primeraData);
         }
     }
 }
