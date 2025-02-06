@@ -169,9 +169,11 @@ namespace Activitats
             {
                 Console.WriteLine("La segona data es abans de la primera data");
             }
-            */
+            
             //Act 11
             Console.WriteLine(DateToday());
+            */
+            
         }
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
