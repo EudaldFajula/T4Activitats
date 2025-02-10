@@ -182,12 +182,16 @@ namespace Activitats
             salesEmployeesList.OrderByDescending (e => e.GetHireDate());
             employeesList.ForEach(e => Console.WriteLine(e.ToString()));
             salesEmployeesList.ForEach(e => Console.WriteLine(e.ToString()));
-            */
+            
             //Act 14
             int totalNum = 0;
             List<int> numList = new List<int>() {1,2,3,5,7,8,4,23,23,467,5 };
             numList.ForEach(num => { totalNum += num; });
             Console.WriteLine(totalNum);
+            */
+            //Act 15
+            List<int> numList = new List<int>() { 1, 2, 3, 5, 7, 8, 4, 23, 23, 467, 5 };
+            numList.ForEach(num => {Console.WriteLine(num % 2 == 0 ? num : null);});
         }
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
