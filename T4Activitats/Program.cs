@@ -4,6 +4,7 @@ using System.Collections.Generic;
 using T4Activitats.Act1;
 using T4Activitats.Act12;
 using T4Activitats.Act13;
+using static Activitats.Act;
 namespace Activitats
 {
     public class Act
@@ -215,12 +216,34 @@ namespace Activitats
                     numList.RemoveAt(i);
                 }
             }
-            */
+            
             //Act 19
             Operacio multiplicar = Multiplicar;
             Operacio dividir = Dividir;
             Console.WriteLine(multiplicar(234,2));
             Console.WriteLine(dividir(6,2));
+            */
+            //Act 20
+            Operacio sumar = (x, y) => x + y;
+            Operacio restar = (x, y) => x - y;
+            Operacio multiplicar = (x, y) => x * y;
+            Operacio dividir = (x, y) => x / y;
+
+            int resultat1 = ExecutarOperacion(10, 5, sumar);
+            int resultat2 = ExecutarOperacion(10, 5, restar);
+            int resultat3 = ExecutarOperacion(10, 5, multiplicar);
+            int resultat4 = ExecutarOperacion(10, 5, dividir);
+
+            Console.WriteLine($"Suma: {resultat1}");
+            Console.WriteLine($"Resta: {resultat2}");
+            Console.WriteLine($"Multiplicación: {resultat3}");
+            Console.WriteLine($"División: {resultat4}");
+
+        }
+        //Act 20
+        public static int ExecutarOperacion(int num, int secondNum, Operacio operacio)
+        {
+            return operacio(num, secondNum);
         }
         //Act19
         public delegate int Operacio(int num, int secondNum);
