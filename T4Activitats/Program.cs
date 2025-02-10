@@ -188,10 +188,15 @@ namespace Activitats
             List<int> numList = new List<int>() {1,2,3,5,7,8,4,23,23,467,5 };
             numList.ForEach(num => { totalNum += num; });
             Console.WriteLine(totalNum);
-            */
+            
             //Act 15
             List<int> numList = new List<int>() { 1, 2, 3, 5, 7, 8, 4, 23, 23, 467, 5 };
             numList.ForEach(num => {Console.WriteLine(num % 2 == 0 ? num : null);});
+            */
+            //Act 16
+            string[] arrayStrings = { "Hola", "Que", "Tal", "?", "jeje" };
+            List<string> listStrings = arrayStrings.ToList();
+            listStrings.ForEach(str => {Console.WriteLine(str);});
         }
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
