@@ -2,6 +2,8 @@
 using System.Collections;
 using System.Collections.Generic;
 using T4Activitats.Act1;
+using T4Activitats.Act12;
+using T4Activitats.Act13;
 namespace Activitats
 {
     public class Act
@@ -173,7 +175,14 @@ namespace Activitats
             //Act 11
             Console.WriteLine(DateToday());
             */
-            
+            //Act 13
+            List<Employee> employeesList = new List<Employee>() { new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(2126, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(2252, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(3123, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(1216, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(1999, 12, 12, 12, 12, 12)) };
+            employeesList.OrderByDescending(e => e.GetHireDate());
+            List<SalesEmployee> salesEmployeesList = new List<SalesEmployee>() { new SalesEmployee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(2116, 12, 12, 12, 12, 12), 564), new SalesEmployee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(1111, 12, 12, 12, 12, 12), 564), new SalesEmployee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(1114, 12, 12, 12, 12, 12), 564), new SalesEmployee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(0573, 12, 12, 12, 12, 12), 564), new SalesEmployee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(1765, 12, 12, 12, 12, 12), 564),};
+            salesEmployeesList.OrderByDescending (e => e.GetHireDate());
+            employeesList.ForEach(e => Console.WriteLine(e.ToString()));
+            salesEmployeesList.ForEach(e => Console.WriteLine(e.ToString()));
+
         }
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
