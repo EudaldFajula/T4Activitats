@@ -239,12 +239,19 @@ namespace Activitats
             Console.WriteLine($"Resta: {resultat2}");
             Console.WriteLine($"Multiplicación: {resultat3}");
             Console.WriteLine($"División: {resultat4}");
-            */
+            
             //Act 21
             Notificacio MostrarMissatgeConsola = missatge => Console.WriteLine(missatge); 
             Notificacio MostrarMissatgeAmbEstrelles = missatge => Console.WriteLine($"**{missatge}**");
             Notificacio MultiCast = MostrarMissatgeConsola + MostrarMissatgeAmbEstrelles;
             MultiCast("Hola");
+            */
+            //Act 22
+            Func<int, int, int> Funcio = (a,b) => a * b;
+            //No retorna res perque els actions no retornen mai (void)
+            Action<int, int> Action = (a, b) => Console.WriteLine(a + b);
+            Console.WriteLine(Funcio(2, 4));
+            Action(1, 56);
         }
         //Act 21
         public delegate void Notificacio(string missatge);
