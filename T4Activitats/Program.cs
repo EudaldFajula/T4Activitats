@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Threading.Channels;
 using T4Activitats.Act1;
 using T4Activitats.Act12;
 using T4Activitats.Act13;
@@ -222,7 +223,7 @@ namespace Activitats
             Operacio dividir = Dividir;
             Console.WriteLine(multiplicar(234,2));
             Console.WriteLine(dividir(6,2));
-            */
+            
             //Act 20
             Operacio sumar = (x, y) => x + y;
             Operacio restar = (x, y) => x - y;
@@ -238,8 +239,16 @@ namespace Activitats
             Console.WriteLine($"Resta: {resultat2}");
             Console.WriteLine($"Multiplicación: {resultat3}");
             Console.WriteLine($"División: {resultat4}");
-
+            */
+            //Act 21
+            Notificacio MostrarMissatgeConsola = missatge => Console.WriteLine(missatge); 
+            Notificacio MostrarMissatgeAmbEstrelles = missatge => Console.WriteLine($"**{missatge}**");
+            Notificacio MultiCast = MostrarMissatgeConsola + MostrarMissatgeAmbEstrelles;
+            MultiCast("Hola");
         }
+        //Act 21
+        public delegate void Notificacio(string missatge);
+
         //Act 20
         public static int ExecutarOperacion(int num, int secondNum, Operacio operacio)
         {
