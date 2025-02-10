@@ -174,7 +174,7 @@ namespace Activitats
             
             //Act 11
             Console.WriteLine(DateToday());
-            */
+            
             //Act 13
             List<Employee> employeesList = new List<Employee>() { new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(2126, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(2252, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(3123, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(1216, 12, 12, 12, 12, 12)), new Employee("Eudald", "Fajula", new DateTime(2006, 12, 12, 12, 12, 12), "0802", new DateTime(1999, 12, 12, 12, 12, 12)) };
             employeesList.OrderByDescending(e => e.GetHireDate());
@@ -182,7 +182,12 @@ namespace Activitats
             salesEmployeesList.OrderByDescending (e => e.GetHireDate());
             employeesList.ForEach(e => Console.WriteLine(e.ToString()));
             salesEmployeesList.ForEach(e => Console.WriteLine(e.ToString()));
-
+            */
+            //Act 14
+            int totalNum = 0;
+            List<int> numList = new List<int>() {1,2,3,5,7,8,4,23,23,467,5 };
+            numList.ForEach(num => { totalNum += num; });
+            Console.WriteLine(totalNum);
         }
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
