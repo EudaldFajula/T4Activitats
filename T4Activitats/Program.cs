@@ -186,7 +186,7 @@ namespace Activitats
             //Act 14
             int totalNum = 0;
             List<int> numList = new List<int>() {1,2,3,5,7,8,4,23,23,467,5 };
-            numList.ForEach(num => { totalNum += num; });
+            numList.Sum(num => totalNum += num);
             Console.WriteLine(totalNum);
             
             //Act 15
@@ -204,7 +204,7 @@ namespace Activitats
             {
                 Console.WriteLine($"Nom: {employee.Key}, Salari: {employee.Value}");
             }
-            */
+            
             //Act 18
             List<int> numList = new List<int>() { 1, 2, 3, 5, 7, 8, 4, 23, 23, 467, 5 };
             //No se puede hacer un foreach porque si borras el numero el foreach da error de exception (creo)
@@ -215,8 +215,17 @@ namespace Activitats
                     numList.RemoveAt(i);
                 }
             }
-            
+            */
+            //Act 19
+            Operacio multiplicar = Multiplicar;
+            Operacio dividir = Dividir;
+            Console.WriteLine(multiplicar(234,2));
+            Console.WriteLine(dividir(6,2));
         }
+        //Act19
+        public delegate int Operacio(int num, int secondNum);
+        public static int Multiplicar(int num, int secondNum) => num * secondNum;
+        public static int Dividir(int num, int secondNum) => num / secondNum;
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
         {
