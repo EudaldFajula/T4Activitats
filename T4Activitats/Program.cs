@@ -197,13 +197,25 @@ namespace Activitats
             string[] arrayStrings = { "Hola", "Que", "Tal", "?", "jeje" };
             List<string> listStrings = arrayStrings.ToList();
             listStrings.ForEach(str => {Console.WriteLine(str);});
-            */
+            
             //Act 17
             Dictionary<string, int> dictionaryEmployees = new Dictionary<string, int>() { {"Eudald",12234},{"Hola",45667 } };
             foreach(var employee in dictionaryEmployees)
             {
                 Console.WriteLine($"Nom: {employee.Key}, Salari: {employee.Value}");
             }
+            */
+            //Act 18
+            List<int> numList = new List<int>() { 1, 2, 3, 5, 7, 8, 4, 23, 23, 467, 5 };
+            //No se puede hacer un foreach porque si borras el numero el foreach da error de exception (creo)
+            for (int i = 0; i < numList.Count; i++)
+            {
+                if (numList[i] > 30)
+                {
+                    numList.RemoveAt(i);
+                }
+            }
+            
         }
         //Act 10
         public static int CompareDates(DateTime primeraData, DateTime segonaData)
