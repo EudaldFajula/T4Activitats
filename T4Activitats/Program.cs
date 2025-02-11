@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Security.Cryptography.X509Certificates;
 using System.Threading.Channels;
 using T4Activitats.Act1;
 using T4Activitats.Act12;
@@ -106,15 +107,15 @@ namespace Activitats
             //Esborrar el true
             arrayList.Remove(true);
             //Afegir el Pere
-            arrayList.Insert(2, "Pere");
+            arrayList.Insert(1, "Pere");
             //Comprovar si esta la Anna
             Console.WriteLine("Comprovar si esta l'anna");
             Console.WriteLine(arrayList.Contains("Anna"));
             //Convertir l'array a un string[]
             string[] arrayString = new string[arrayList.Count]; 
             arrayList.CopyTo(arrayString);
-            Console.WriteLine("Array now tipus string");
-            foreach (var item in arrayList)
+            Console.WriteLine("Array es tipus string");
+            foreach (string item in arrayString)
             {
                 Console.WriteLine(item);
             }
@@ -245,14 +246,24 @@ namespace Activitats
             Notificacio MostrarMissatgeAmbEstrelles = missatge => Console.WriteLine($"**{missatge}**");
             Notificacio MultiCast = MostrarMissatgeConsola + MostrarMissatgeAmbEstrelles;
             MultiCast("Hola");
-            */
+            
             //Act 22
             Func<int, int, int> Funcio = (a,b) => a * b;
             //No retorna res perque els actions no retornen mai (void)
             Action<int, int> Action = (a, b) => Console.WriteLine(a + b);
             Console.WriteLine(Funcio(2, 4));
             Action(1, 56);
+            */
+            //Act 23
+            OperacioV metodeAnonim = delegate (int a, int b) 
+            {
+                Console.WriteLine(Math.Pow(a, b)); 
+            };
+            metodeAnonim(2, 3);
+            
         }
+        //Act 23
+        public delegate void OperacioV (int a, int b);
         //Act 21
         public delegate void Notificacio(string missatge);
 
