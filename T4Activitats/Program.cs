@@ -260,7 +260,7 @@ namespace Activitats
                 Console.WriteLine(Math.Pow(a, b)); 
             };
             metodeAnonim(2, 3);
-            */
+            
             //Act 24
             ExecutarAmbMètodeAnonim(delegate {
                 Console.WriteLine("Executar metode anonim test1");
@@ -271,7 +271,11 @@ namespace Activitats
             ExecutarAmbMètodeAnonim(delegate {
                 Console.WriteLine("Executar metode anonim test3");
             });
-
+            */
+            //Act 25
+            Func<int, int, int> Funcio = (a,b) => a + b;
+            var variableFuncio = Funcio(2,5);
+            Console.WriteLine(variableFuncio);
         }
         //Act 24
         public static void ExecutarAmbMètodeAnonim(DelegatAct24 delegat) => delegat();
