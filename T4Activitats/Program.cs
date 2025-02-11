@@ -253,15 +253,29 @@ namespace Activitats
             Action<int, int> Action = (a, b) => Console.WriteLine(a + b);
             Console.WriteLine(Funcio(2, 4));
             Action(1, 56);
-            */
+            
             //Act 23
             OperacioV metodeAnonim = delegate (int a, int b) 
             {
                 Console.WriteLine(Math.Pow(a, b)); 
             };
             metodeAnonim(2, 3);
-            
+            */
+            //Act 24
+            ExecutarAmbMètodeAnonim(delegate {
+                Console.WriteLine("Executar metode anonim test1");
+            });
+            ExecutarAmbMètodeAnonim(delegate {
+                Console.WriteLine("Executar metode anonim test2");
+            });
+            ExecutarAmbMètodeAnonim(delegate {
+                Console.WriteLine("Executar metode anonim test3");
+            });
+
         }
+        //Act 24
+        public static void ExecutarAmbMètodeAnonim(DelegatAct24 delegat) => delegat();
+        public delegate void DelegatAct24(); 
         //Act 23
         public delegate void OperacioV (int a, int b);
         //Act 21
