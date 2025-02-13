@@ -6,18 +6,19 @@ using System.Threading.Tasks;
 
 namespace T4Activitats.Act12
 {
-    internal class Employee
+    public class Employee
     {
-        public static int _count = 0;
+        //Act 12
+        protected static int _count = 0;
+        public float MonthSalary { get; set; }
+        public int Payments { get; set; }
         public string Name { get; set; }
         public string LastName { get; set; }
         public DateTime DateBirth { get; set; }
         //Act 13
         public string Code { get; set; }
         public DateTime HireDate { get; set; }
-        public float MonthSalary { get; set; }
-        public int Payments { get; set; }
-
+        //Act 12
 
         public Employee(string name, string lastName, DateTime dateBirth, string code, DateTime hireDate, float monthSalary, int payments)
         {
@@ -47,6 +48,19 @@ namespace T4Activitats.Act12
         public int GetAge() => CalculateAge();
         public int GetHireDate() => this.HireDate.Year;
         public float GetAnnualSalary() => this.MonthSalary  * 12;
-        public override string ToString() => $"-----------------------------------------------------------------------------------------------------\r\n                           E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\r\n>Code: {this.Code} \r\n>Firstname: {this.Name}\r\n>Last name:{this.LastName}\r\n>Full name: {GetFullName()}\r\n>Reverse name: {GetFullNameReverse()}\r\n>Age: {GetAge()}\r\n>Seniority: {GetHireDate()}\r\n>Annual salary: {GetAnnualSalary()}\r\n";
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"-----------------------------------------------------------------------------------------------------\r\n                           E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\r\n");
+            sb.Append($">Code: {this.Code} \r\n>Firstname: {this.Name}");
+            sb.Append($"\r\n>Last name:{this.LastName}");
+            sb.Append($"\r\n>Full name: {GetFullName()}");
+            sb.Append($"\r\n>Reverse name: {GetFullNameReverse()}");
+            sb.Append($"\r\n>Age: {GetAge()}");
+            sb.Append($"\r\n>Seniority: {GetHireDate()}");
+            sb.Append($"\r\n>Annual salary: {GetAnnualSalary()}\r\n");
+            return sb.ToString();
+        }   
+        public int GetCount() => _count;
     }
 }
