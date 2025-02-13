@@ -7,7 +7,7 @@ using T4Activitats.Act12;
 
 namespace T4Activitats.Act13
 {
-    internal class SalesEmployee : Employee
+    public class SalesEmployee : Employee
     {
         public float Commission { get; set; }
         //Act 13
@@ -21,6 +21,13 @@ namespace T4Activitats.Act13
             Commission = commission;
             _count++;
         }
-        public override string ToString() => $"-----------------------------------------------------------------------------------------------------\r\n                           S A L E S E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\r\n>Code: {this.Code} \r\n>Firstname: {this.Name}\r\n>Last name:{this.LastName}\r\n>Full name: {GetFullName()}\r\n>Reverse name: {GetFullNameReverse()}\r\n>Age: {GetAge()}\r\n>Seniority: {GetHireDate()}\r\n>Annual salary: {GetAnnualSalary()}\r\n>Commission: {this.Commission}\r\n";
+        public override string ToString()
+        {
+            StringBuilder sb = new StringBuilder();
+            sb.Append($"-----------------------------------------------------------------------------------------------------\r\n                          S A L E S E M P L O Y E E\r\n-----------------------------------------------------------------------------------------------------\r\n");
+            sb.Append(base.ToString());
+            sb.Append($">Commission: {this.Commission}\r\n");
+            return sb.ToString();
+        } 
     }
 }

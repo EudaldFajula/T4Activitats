@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using T4Activitats.Act1;
 using T4Activitats.Act12;
@@ -271,12 +272,19 @@ namespace Activitats
             ExecutarAmbMètodeAnonim(delegate {
                 Console.WriteLine("Executar metode anonim test3");
             });
-            */
+            
             //Act 25
             Func<int, int, int> Funcio = (a,b) => a + b;
             var variableFuncio = Funcio(2,5);
-            Console.WriteLine(variableFuncio);
+            Console.WriteLine(variableFuncio)
+            */
+            //Act 26
+            Console.WriteLine("Introdueix un email:");
+            string email = Console.ReadLine();
+            Console.WriteLine(IsValidEmail(email)? "L'email es valid" : "L'email no es valid");
         }
+        //Act 26
+        public static bool IsValidEmail(string email) => Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]");
         //Act 24
         public static void ExecutarAmbMètodeAnonim(DelegatAct24 delegat) => delegat();
         public delegate void DelegatAct24(); 
@@ -286,10 +294,7 @@ namespace Activitats
         public delegate void Notificacio(string missatge);
 
         //Act 20
-        public static int ExecutarOperacion(int num, int secondNum, Operacio operacio)
-        {
-            return operacio(num, secondNum);
-        }
+        public static int ExecutarOperacion(int num, int secondNum, Operacio operacio) => operacio(num, secondNum);
         //Act19
         public delegate int Operacio(int num, int secondNum);
         public static int Multiplicar(int num, int secondNum) => num * secondNum;
