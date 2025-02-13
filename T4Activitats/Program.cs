@@ -277,11 +277,36 @@ namespace Activitats
             Func<int, int, int> Funcio = (a,b) => a + b;
             var variableFuncio = Funcio(2,5);
             Console.WriteLine(variableFuncio)
-            */
+            
             //Act 26
             Console.WriteLine("Introdueix un email:");
             string email = Console.ReadLine();
             Console.WriteLine(IsValidEmail(email)? "L'email es valid" : "L'email no es valid");
+            */
+            //Act 27
+            Console.WriteLine("Introdueix un telefon: ");
+            string phoneNumber = Console.ReadLine();
+            Console.WriteLine(IsValidPhoneNumber(phoneNumber) ? "El numero es valid" : "El numero no es valid");
+        }
+        //Act 27
+        public static bool IsValidPhoneNumber(string phone)
+        {
+            if (Regex.IsMatch(phone, @"^[6-9][0-9]{2} [0-9]{3} [0-9]{3}$"))
+            {
+                return true;
+            }
+            else if (Regex.IsMatch(phone, @"[+34] [6-9][0-9]{3} [0-9]{3} [0-9]{3}$"))
+            {
+                return true;
+            }
+            else if (Regex.IsMatch(phone, @"^[6-9][0-9]{9}$"))
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
         //Act 26
         public static bool IsValidEmail(string email) => Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]");
