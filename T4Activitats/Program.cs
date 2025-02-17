@@ -312,22 +312,6 @@ namespace Activitats
             }
             return sr.ToString();
         }
-        public static List<int?> ExtractNum(string str)
-        {
-            int[] codiAscci = { 48, 49, 50, 51, 52, 52, 53, 54, 55, 56, 57 };
-            List<int?> listNum = new List<int?>();
-            foreach (char c in str)
-            {
-                for (int i = 0; i < codiAscci.Length; i++)
-                {
-                    if (c == codiAscci[i])
-                    {
-                        listNum.Add(Convert.ToInt32(c.ToString()));
-                    }
-                }
-            }
-            return listNum;
-        }
         //Act 27
         public static bool IsValidPhoneNumber(string phone)
         {
