@@ -2,6 +2,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using System.Security.Cryptography.X509Certificates;
+using System.Text;
 using System.Text.RegularExpressions;
 using System.Threading.Channels;
 using T4Activitats.Act1;
@@ -188,10 +189,8 @@ namespace Activitats
             salesEmployeesList.ForEach(e => Console.WriteLine(e.ToString()));
             
             //Act 14
-            int totalNum = 0;
             List<int> numList = new List<int>() {1,2,3,5,7,8,4,23,23,467,5 };
-            numList.Sum(num => totalNum += num);
-            Console.WriteLine(totalNum);
+            Console.WriteLine(numList.Sum());
             
             //Act 15
             List<int> numList = new List<int>() { 1, 2, 3, 5, 7, 8, 4, 23, 23, 467, 5 };
@@ -231,7 +230,7 @@ namespace Activitats
             Operacio restar = (x, y) => x - y;
             Operacio multiplicar = (x, y) => x * y;
             Operacio dividir = (x, y) => x / y;
-
+            
             int resultat1 = ExecutarOperacion(10, 5, sumar);
             int resultat2 = ExecutarOperacion(10, 5, restar);
             int resultat3 = ExecutarOperacion(10, 5, multiplicar);
@@ -282,11 +281,35 @@ namespace Activitats
             Console.WriteLine("Introdueix un email:");
             string email = Console.ReadLine();
             Console.WriteLine(IsValidEmail(email)? "L'email es valid" : "L'email no es valid");
-            */
+            
             //Act 27
             Console.WriteLine("Introdueix un telefon: ");
             string phoneNumber = Console.ReadLine();
             Console.WriteLine(IsValidPhoneNumber(phoneNumber) ? "El numero es valid" : "El numero no es valid");
+            */
+            //Act 28
+            List<int?> Lista = ExtractNum("Avui és el dia 12 del mes 02 de l'any 2024");
+            Lista.ForEach(x =>
+            {
+                Console.WriteLine(x);
+            });
+        }
+        //Act 28
+        public static List<int?> ExtractNum(string str)
+        {
+            int[] codiAscci = { 48, 49, 50, 51, 52, 52, 53, 54, 55, 56, 57 };
+            List<int?> listNum = new List<int?>();
+            foreach (char c in str)
+            {
+                for (int i = 0; i < codiAscci.Length; i++)
+                {
+                    if (c == codiAscci[i])
+                    {
+                        listNum.Add(Convert.ToInt32(c.ToString()));
+                    }
+                }
+            }
+            return listNum;
         }
         //Act 27
         public static bool IsValidPhoneNumber(string phone)
