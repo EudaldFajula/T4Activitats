@@ -288,28 +288,29 @@ namespace Activitats
             Console.WriteLine(IsValidPhoneNumber(phoneNumber) ? "El numero es valid" : "El numero no es valid");
             */
             //Act 28
-            List<int?> Lista = ExtractNum("Avui és el dia 12 del mes 02 de l'any 2024");
-            Lista.ForEach(x =>
-            {
-                Console.WriteLine(x);
-            });
+            Console.WriteLine(ExtractNumRegex("Avui és el dia 12 del mes 02 de l'any 2024"));
         }
         //Act 28
-        public static List<int?> ExtractNum(string str)
+        public static string ExtractNumRegex(string str)
         {
-            int[] codiAscci = { 48, 49, 50, 51, 52, 52, 53, 54, 55, 56, 57 };
-            List<int?> listNum = new List<int?>();
-            foreach (char c in str)
+            StringBuilder sr = new StringBuilder();
+            int outIndex = 0;
+            for(int i = 0; i < str.Length; i++)
             {
-                for (int i = 0; i < codiAscci.Length; i++)
+                if (Regex.IsMatch(str[i].ToString(), @"[0-9]"))
                 {
-                    if (c == codiAscci[i])
+                    int currentI = i;
+                    do
                     {
-                        listNum.Add(Convert.ToInt32(c.ToString()));
-                    }
+                        sr.Append(str[currentI]);
+                        currentI++;
+                        outIndex = currentI > str.Length - 1 ? currentI - 1 : currentI;
+                    } while (Regex.IsMatch(str[outIndex].ToString(), @"[0-9]") && str.Length > currentI);
+                    sr.Append(", ");
+                    i = currentI;
                 }
             }
-            return listNum;
+            return sr.ToString();
         }
         //Act 27
         public static bool IsValidPhoneNumber(string phone)
