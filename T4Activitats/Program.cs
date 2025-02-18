@@ -286,10 +286,15 @@ namespace Activitats
             Console.WriteLine("Introdueix un telefon: ");
             string phoneNumber = Console.ReadLine();
             Console.WriteLine(IsValidPhoneNumber(phoneNumber) ? "El numero es valid" : "El numero no es valid");
-            */
+            
             //Act 28
             Console.WriteLine(ExtractNumRegex("Avui és el dia 12 del mes 02 de l'any 2024"));
+            */
+            //Act 29
+            Console.WriteLine(ValidatePassword("HolaComo345@"));
         }
+        //Act 29
+        public static bool ValidatePassword(string str) => Regex.IsMatch(str, "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
         //Act 28
         public static string ExtractNumRegex(string str)
         {
