@@ -298,8 +298,34 @@ namespace Activitats
         }
         //Act 30
         public static bool ValidatePostalCode(string str) => Regex.IsMatch(str, "^(0[1-9]\\d{3}|[1-4]\\d{4}|5[0-2]\\d{3})$");
+        /*
+         ^ indica l'inici de la cadena.
+
+        0[1-9]\d{3} valida codis postals entre 01000 i 09999.
+
+        [1-4]\d{4} valida codis postals entre 10000 i 49999.
+
+        5[0-2]\d{3} valida codis postals entre 50000 i 52999.
+
+        $ indica el final de la cadena.
+        */
         //Act 29
         public static bool ValidatePassword(string str) => Regex.IsMatch(str, "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
+        /*
+         ^ indica l'inici de la cadena.
+
+        (?=.*[A-Z]) assegura que hi hagi almenys una lletra majúscula.
+
+        (?=.*[a-z]) assegura que hi hagi almenys una lletra minúscula.
+
+        (?=.*\d) assegura que hi hagi almenys un número.
+
+        (?=.*[@$!%*?&]) assegura que hi hagi almenys un símbol especial (podeu afegir o modificar els símbols especials segons les vostres necessitats).
+
+        [A-Za-z\d@$!%*?&]{8,} assegura que la longitud total sigui de mínim 8 caràcters i permet només les lletres, números i símbols especials especificats.
+
+        $ indica el final de la cadena.
+         */
         //Act 28
         public static string ExtractNumRegex(string str)
         {
