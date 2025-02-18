@@ -289,10 +289,15 @@ namespace Activitats
             
             //Act 28
             Console.WriteLine(ExtractNumRegex("Avui és el dia 12 del mes 02 de l'any 2024"));
-            */
+            
             //Act 29
             Console.WriteLine(ValidatePassword("HolaComo345@"));
+            */
+            //Act 30
+            Console.WriteLine(ValidatePostalCode("01000"));
         }
+        //Act 30
+        public static bool ValidatePostalCode(string str) => Regex.IsMatch(str, "^(0[1-9]\\d{3}|[1-4]\\d{4}|5[0-2]\\d{3})$");
         //Act 29
         public static bool ValidatePassword(string str) => Regex.IsMatch(str, "^(?=.*[A-Z])(?=.*[a-z])(?=.*\\d)(?=.*[@$!%*?&])[A-Za-z\\d@$!%*?&]{8,}$");
         //Act 28
