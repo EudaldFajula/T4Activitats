@@ -367,7 +367,12 @@ namespace Activitats
             string path = Path.GetFullPath("..\\..\\..\\Act32\\Act32.txt");
             string missatge = "Alumne 1:\nNom: Alvaro\nCognom: Fajula\nNota: 8\nAlumne2:\nNom: Laia\nCognom: Fernandez\nNota: 7\nAlumne 3:\nNom: Laura\nCognom: Castillo\nNota: 10\nAlumne 4:\nNom: Eudald\nCongnom: Fajula\nNota:4\nAlumne 5:\nNom: Miquel\nCognom: Fernanfloo\nNota: 6" + Environment.NewLine;
             File.WriteAllText(path, missatge);
-            
+            using StreamReader sr = new StreamReader(path);
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+            }
         }
         //Act 30
         public static bool ValidatePostalCode(string str) => Regex.IsMatch(str, "^(0[1-9]\\d{3}|[1-4]\\d{4}|5[0-2]\\d{3})$");
