@@ -1,0 +1,20 @@
+Alumne 1:
+Nom: Alvaro
+Cognom: Fajula
+Nota: 8
+Alumne2:
+Nom: Laia
+Cognom: Fernandez
+Nota: 7
+Alumne 3:
+Nom: Laura
+Cognom: Castillo
+Nota: 10
+Alumne 4:
+Nom: Eudald
+Congnom: Fajula
+Nota:4
+Alumne 5:
+Nom: Miquel
+Cognom: Fernanfloo
+Nota: 6
