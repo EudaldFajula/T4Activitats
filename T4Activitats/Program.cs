@@ -295,7 +295,7 @@ namespace Activitats
             
             //Act 30
             Console.WriteLine(ValidatePostalCode("01000"));
-            */
+            
             //Act 31
             //a 
             int[] valors = { 1, 2, 23, 4, 4, -6, 7, 8, -86,-10 };
@@ -347,6 +347,7 @@ namespace Activitats
                 iForE++;
             }
             //f
+            
             List<string> listWeekDays = new List<string> { "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge" };
             //g
             int iForG = 0;
@@ -355,9 +356,18 @@ namespace Activitats
             Console.WriteLine("QueryG");
             foreach (var i in queryG)
             {
-                Console.WriteLine($"Numero: {valors[iForG]}, Multiplicat per la freqüencia:\t{i} ");
+                Console.WriteLine($"Numero: {valors[iForG]}, Freqüencia: {queryD.ToList()[iForG]}  Multiplicat per la freqüencia:\t{i} ");
                 iForG++;
             }
+            */
+            //Act 32
+            //C:\Users\isard\Desktop\T4Activitats\T4Activitats\bin\Debug\net8.0\Act32\Act32.txt'.'
+            //C:\Users\isard\Desktop\T4Activitats\T4Activitats\Program.cs
+            //C:\Users\isard\Desktop\T4Activitats\T4Activitats\Act32\
+            string path = Path.GetFullPath("..\\..\\..\\Act32\\Act32.txt");
+            string missatge = "Alumne 1:\nNom: Alvaro\nCognom: Fajula\nNota: 8\nAlumne2:\nNom: Laia\nCognom: Fernandez\nNota: 7\nAlumne 3:\nNom: Laura\nCognom: Castillo\nNota: 10\nAlumne 4:\nNom: Eudald\nCongnom: Fajula\nNota:4\nAlumne 5:\nNom: Miquel\nCognom: Fernanfloo\nNota: 6" + Environment.NewLine;
+            File.WriteAllText(path, missatge);
+            
         }
         //Act 30
         public static bool ValidatePostalCode(string str) => Regex.IsMatch(str, "^(0[1-9]\\d{3}|[1-4]\\d{4}|5[0-2]\\d{3})$");
