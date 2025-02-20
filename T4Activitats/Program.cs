@@ -1,6 +1,8 @@
-﻿using System;
+﻿using CsvHelper;
+using System;
 using System.Collections;
 using System.Collections.Generic;
+using System.Globalization;
 using System.Security.Cryptography.X509Certificates;
 using System.Text;
 using System.Text.RegularExpressions;
@@ -8,6 +10,7 @@ using System.Threading.Channels;
 using T4Activitats.Act1;
 using T4Activitats.Act12;
 using T4Activitats.Act13;
+using T4Activitats.Act33;
 using static Activitats.Act;
 namespace Activitats
 {
@@ -255,20 +258,20 @@ namespace Activitats
             Action(1, 56);
             
             //Act 23
-            OperacioV metodeAnonim = delegate (int a, int b) 
+            OperacioV metodeAnonim = delegate (int a, int b)
             {
                 Console.WriteLine(Math.Pow(a, b)); 
             };
             metodeAnonim(2, 3);
             
             //Act 24
-            ExecutarAmbMètodeAnonim(delegate {
+            ExecutarAmbMetodeAnonim(delegate {
                 Console.WriteLine("Executar metode anonim test1");
             });
-            ExecutarAmbMètodeAnonim(delegate {
+            ExecutarAmbMetodeAnonim(delegate {
                 Console.WriteLine("Executar metode anonim test2");
             });
-            ExecutarAmbMètodeAnonim(delegate {
+            ExecutarAmbMetodeAnonim(delegate {
                 Console.WriteLine("Executar metode anonim test3");
             });
             
@@ -291,10 +294,10 @@ namespace Activitats
             Console.WriteLine(ExtractNumRegex("Avui és el dia 12 del mes 02 de l'any 2024"));
             
             //Act 29
-            Console.WriteLine(ValidatePassword("HolaComo345@"));
+            Console.WriteLine(ValidatePassword("HolaComo345@") ? "La contrasenya es vàlida" : "La contrasenya no es vàlida");
             
             //Act 30
-            Console.WriteLine(ValidatePostalCode("01000"));
+            Console.WriteLine(ValidatePostalCode("01000")  ? "El codi postal es correcte" : "El codi postal es incorrecte");
             
             //Act 31
             //a 
@@ -347,8 +350,13 @@ namespace Activitats
                 iForE++;
             }
             //f
-            
-            List<string> listWeekDays = new List<string> { "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge" };
+            Console.WriteLine("F");
+            var cultura = new CultureInfo("ca-ES");
+            var diesSetmana = cultura.DateTimeFormat.DayNames.Skip(1).Concat(cultura.DateTimeFormat.DayNames.Take(1));
+            foreach (var i in diesSetmana)
+            {
+                Console.WriteLine(i);
+            }
             //g
             int iForG = 0;
             var queryG = from valor in valors
@@ -359,7 +367,7 @@ namespace Activitats
                 Console.WriteLine($"Numero: {valors[iForG]}, Freqüencia: {queryD.ToList()[iForG]}  Multiplicat per la freqüencia:\t{i} ");
                 iForG++;
             }
-            */
+            
             //Act 32
             //C:\Users\isard\Desktop\T4Activitats\T4Activitats\bin\Debug\net8.0\Act32\Act32.txt'.'
             //C:\Users\isard\Desktop\T4Activitats\T4Activitats\Program.cs
@@ -367,7 +375,26 @@ namespace Activitats
             string path = Path.GetFullPath("..\\..\\..\\Act32\\Act32.txt");
             string missatge = "Alumne 1:\nNom: Alvaro\nCognom: Fajula\nNota: 8\nAlumne2:\nNom: Laia\nCognom: Fernandez\nNota: 7\nAlumne 3:\nNom: Laura\nCognom: Castillo\nNota: 10\nAlumne 4:\nNom: Eudald\nCongnom: Fajula\nNota:4\nAlumne 5:\nNom: Miquel\nCognom: Fernanfloo\nNota: 6" + Environment.NewLine;
             File.WriteAllText(path, missatge);
-            
+            using StreamReader sr = new StreamReader(path);
+            string line;
+            while ((line = sr.ReadLine()) != null)
+            {
+                Console.WriteLine(line);
+            }
+            */
+            //Act 33
+            string path = Path.GetFullPath("..\\..\\..\\Act33\\Act33.csv");
+            using var writer = new StreamWriter(path);
+            using var csvWriter = new CsvWriter(writer, CultureInfo.InvariantCulture);
+            var text = new List<Person>() { new Person("Peter", 34, "Andalucia"), new Person("Vegeta", 345, "Namek"), new Person("Yeah Perdonen", 34, "Zarcot"), new Person("Alvaro", 18, "Nose"), new Person("Fernanfloo", 56, "YouTube") };
+            csvWriter.WriteRecords(text);
+            using var reader = new StreamReader(path);
+            using var csvReader = new CsvReader(reader, CultureInfo.InvariantCulture);
+            var textToRead = csvReader.GetRecords<Person>();
+            foreach (var i in textToRead)
+            {
+                Console.WriteLine($"Nom: {i.Nom}, Edat: {i.Edat}, Ciutat: {i.Ciutat}");
+            }
         }
         //Act 30
         public static bool ValidatePostalCode(string str) => Regex.IsMatch(str, "^(0[1-9]\\d{3}|[1-4]\\d{4}|5[0-2]\\d{3})$");
@@ -444,7 +471,7 @@ namespace Activitats
         //Act 26
         public static bool IsValidEmail(string email) => Regex.IsMatch(email, @"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]");
         //Act 24
-        public static void ExecutarAmbMètodeAnonim(DelegatAct24 delegat) => delegat();
+        public static void ExecutarAmbMetodeAnonim(DelegatAct24 delegat) => delegat();
         public delegate void DelegatAct24(); 
         //Act 23
         public delegate void OperacioV (int a, int b);
