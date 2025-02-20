@@ -292,9 +292,72 @@ namespace Activitats
             
             //Act 29
             Console.WriteLine(ValidatePassword("HolaComo345@"));
-            */
+            
             //Act 30
             Console.WriteLine(ValidatePostalCode("01000"));
+            */
+            //Act 31
+            //a 
+            int[] valors = { 1, 2, 23, 4, 4, -6, 7, 8, -86,-10 };
+            var queryA = from valor in valors
+                             where valor % 2 == 0
+                             select valor;
+            Console.WriteLine("QueryA");
+            foreach(var i in queryA)
+            {
+                Console.WriteLine(i + " ");
+            }
+            //b
+            var queryB = from valor in valors
+                             where valor > 0
+                             select valor;
+            Console.WriteLine("QueryB");
+            foreach (var i in queryB)
+            {
+                Console.WriteLine(i + " ");
+            }
+            //c
+            var queryC = from valor in valors
+                              where valor > 20
+                              select valor * valor;
+            Console.WriteLine("QueryC");
+            foreach (var i in queryC)
+            {
+                Console.WriteLine(i + " ");
+            }
+            //d
+            int iForD = 0;
+            var queryD = from valor in valors
+                         select valors.Count(n => n == valor);  
+            Console.WriteLine("QueryD");
+            foreach (var i in queryD)
+            {
+                Console.WriteLine($"Numero: {valors[iForD]}, Freqüencia:\t{i} ");
+                iForD++;
+            }
+            //e
+            string textE = "Hola Prova";
+            int iForE = 0;
+            var queryE = from valor in textE
+                         select textE.Count(n => n == valor);
+            Console.WriteLine("QueryE");
+            foreach(var i in queryE)
+            {
+                Console.WriteLine($"{textE[iForE]}:\t{i} ");
+                iForE++;
+            }
+            //f
+            List<string> listWeekDays = new List<string> { "Dilluns", "Dimarts", "Dimecres", "Dijous", "Divendres", "Dissabte", "Diumenge" };
+            //g
+            int iForG = 0;
+            var queryG = from valor in valors
+                         select valor * valors.Count(n => n == valor);
+            Console.WriteLine("QueryG");
+            foreach (var i in queryG)
+            {
+                Console.WriteLine($"Numero: {valors[iForG]}, Multiplicat per la freqüencia:\t{i} ");
+                iForG++;
+            }
         }
         //Act 30
         public static bool ValidatePostalCode(string str) => Regex.IsMatch(str, "^(0[1-9]\\d{3}|[1-4]\\d{4}|5[0-2]\\d{3})$");
